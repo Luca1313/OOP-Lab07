@@ -47,7 +47,6 @@ public class SportSocialNetworkUserImpl<U extends User> extends SocialNetworkUse
      */
     public SportSocialNetworkUserImpl(final String name, final String surname, final String user) {
         this(name, surname, user, -1);
-        this.sports = new HashSet<>();
     }
 
     /**
