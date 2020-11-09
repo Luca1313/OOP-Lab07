@@ -48,17 +48,17 @@ public class SportSocialNetworkUserImpl<U extends User> extends SocialNetworkUse
      * Static {@link Sport} constant.
      */
     public static final Sport BIKE;
-
+    
     /*
      * TODO: initialize properly these sports
      */
     static {
-        SOCCER = null;
-        F1 = null;
-        MOTOGP = null;
-        VOLLEY = null;
-        BASKET = null;
-        BIKE = null;
+        SOCCER = createSport("Soccer");
+        F1 = createSport("F1");
+        MOTOGP = createSport("MotoGP");
+        VOLLEY = createSport("Volley");
+        BASKET = createSport("Basket");
+        BIKE = createSport("Bike");
     }
 
     /**
@@ -114,7 +114,7 @@ public class SportSocialNetworkUserImpl<U extends User> extends SocialNetworkUse
      */
     // TODO
     public void addSport(final Sport sport) {
-
+    	this.sports.add(sport);
     }
 
     /**
@@ -126,7 +126,7 @@ public class SportSocialNetworkUserImpl<U extends User> extends SocialNetworkUse
      */
     // TODO
     public boolean hasSport(final Sport s) {
-        return false;
+        return this.sports.contains(s);
     }
 
     /*
@@ -136,6 +136,24 @@ public class SportSocialNetworkUserImpl<U extends User> extends SocialNetworkUse
      * with its bare name.
      */
     public static final class Sport {
+    	
+    	String name;
+    	
+    	public Sport(String sportName) {
+    		this.name = sportName;
+    	}
+    	
+    	public String getName() {
+    		return this.name;
+    	}
+    	
+    	public int hashCode() {
+    		if(this.name == null) {
+    			return 0;
+    		} else {
+    			return this.name.hashCode();
+    		}
+    	}
         /*
          * TODO
          * 
@@ -144,7 +162,16 @@ public class SportSocialNetworkUserImpl<U extends User> extends SocialNetworkUse
          */
         @Override
         public boolean equals(final Object o) {
-            return false;
+        	if (o == null) {
+        		return false;
+        	}
+        	Sport sport = (Sport) o;
+        	
+            return this.hashCode() == sport.hashCode();
         }
+    }
+    
+    public static Sport createSport(String sportName) {
+    	return new Sport(sportName);
     }
 }
