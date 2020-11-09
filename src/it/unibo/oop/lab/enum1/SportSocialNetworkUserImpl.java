@@ -33,7 +33,7 @@ public class SportSocialNetworkUserImpl<U extends User> extends SocialNetworkUse
      * 
      * add a field to keep track of the set of sports followed/done by a user
      */
-	public Set<Sport> sports;
+	private Set<Sport> sports;
     /**
      * Builds a new {@link SportSocialNetworkUserImpl}.
      * 
