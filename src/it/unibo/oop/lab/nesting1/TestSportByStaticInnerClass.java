@@ -29,10 +29,16 @@ public final class TestSportByStaticInnerClass {
          * 
          * Fernando Alonso, falonso, 34
          */
-        final SportSocialNetworkUserImpl<User> dcassani = null;
-        final SportSocialNetworkUserImpl<User> becclestone = null;
-        final SportSocialNetworkUserImpl<User> falonso = null;
-
+        final SportSocialNetworkUserImpl<User> dcassani = 
+        		new SportSocialNetworkUserImpl("Davide", "Cassani", "dcassani");
+        final SportSocialNetworkUserImpl<User> becclestone = 
+        		new SportSocialNetworkUserImpl("Bernie", "Ecclestone", "becclestone");
+        final SportSocialNetworkUserImpl<User> falonso = 
+        		new SportSocialNetworkUserImpl("Fernando", "Alonso", "falonso");
+        
+        falonso.addSport(SportSocialNetworkUserImpl.SOCCER);
+        falonso.addSport(SportSocialNetworkUserImpl.BIKE);
+        falonso.addSport(SportSocialNetworkUserImpl.F1);
         /*
          * TODO: alonso is a fan of soccer and bike and practices F1: 
          * add these sports to Alonso
