@@ -16,6 +16,13 @@ package it.unibo.oop.lab.enum2;
  * 
  */
 public enum Sport {
+	BASKET(Place.OUTDOOR, 5, "Basket"),
+	VOLLEY(Place.INDOOR, 6, "Volley"),
+	TENNIS(Place.OUTDOOR, 2, "Tennis"),
+	BIKE(Place.OUTDOOR, 1, "Bike"),
+	F1(Place.OUTDOOR, 1, "F1"),
+	MOTOGP(Place.OUTDOOR, 1, "MotoGP"),
+	SOCCER(Place.OUTDOOR, 11, "Soccer");
 
     /*
      * TODO
@@ -37,7 +44,9 @@ public enum Sport {
      * - soccer
      * 
      */
-
+	private final Place place;
+	private final int noTeamMembers;
+	private final String name;
     /*
      * TODO
      * 
@@ -45,7 +54,9 @@ public enum Sport {
      * 
      * Declare required fields
      */
-
+	private Sport(final Place place, final int noTeamMembers, final String actualName) {
+		this.place = place;	this.noTeamMembers = noTeamMembers;	this.name = actualName;
+	}
     /*
      * TODO
      * 
@@ -55,7 +66,23 @@ public enum Sport {
      * 
      * - Sport(final Place place, final int noTeamMembers, final String actualName)
      */
-
+	public boolean isIndividualSport() {
+		return this.noTeamMembers == 1;
+	}
+	
+	public boolean isIndoorSport() {
+		return this.place == Place.INDOOR;
+	}
+	
+	public Place getPlace() {
+		return this.place;
+	}
+	
+	public String toString() {
+		return "[ " + this.name + " is an " + (this.place == Place.INDOOR? "indoor" : "outdoor") + " sport, "
+				+ "and it's " + (this.noTeamMembers == 1? "an individual sport. ]" : ("played by a team composed of "
+				+ this.noTeamMembers + " members. ]"));
+	}
     /*
      * TODO
      * 
